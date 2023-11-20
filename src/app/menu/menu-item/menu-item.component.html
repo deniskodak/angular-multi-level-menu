@@ -1,0 +1,4 @@
+<div class="menu-item" [class.active]="active">
+  <p class="menu-item-label" >{{ item?.label }}</p>
+  <span *ngIf="item?.children?.length" class="menu-item-arrow" >></span>
+</div>

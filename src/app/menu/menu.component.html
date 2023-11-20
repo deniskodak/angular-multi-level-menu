@@ -1,0 +1,16 @@
+<div class="menu">
+  <ul class="menu-list">
+      <li 
+      *ngFor="let item of config; trackBy: identify" 
+      (click)="handleSelectItem(item)" 
+      >
+      <app-menu-item [item]="item" [active]="item.key === selectedItem?.key" />
+  </li>
+</ul>
+
+<app-menu 
+  *ngIf="selectedItem?.children?.length"
+  (itemSelect)="handleNestedSelectItem($event)"
+  [config]="selectedItem?.children || []"
+/>
+</div>

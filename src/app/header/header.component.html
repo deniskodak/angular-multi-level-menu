@@ -1,0 +1,20 @@
+<div class="header">
+  <div class="header-info-wrapper">
+      <span class="header-logo"><a hred="/">Logo</a></span>
+      <h1>Nested menu</h1>
+  </div>
+  <div class="header-link-wrapper">
+      <ul class=header-link-list>
+          <li 
+              (click)="setSelectedItem(item)"
+              class="header-link-list-item"
+              *ngFor="let item of menuConfig">
+              {{ item.label }} {{ item.children.length ? '&dArr;' : '' }}
+          </li>
+      </ul>
+  </div>
+  <div class="header-sub-menu" *ngIf="subMenuShown">
+      <app-menu (itemSelect)="setSelectedKey($event)" [config]="selectedItem?.children || []" />
+  </div>
+</div>
+
